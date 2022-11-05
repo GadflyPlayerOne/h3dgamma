@@ -18,8 +18,8 @@ class DataVector {
             fprintf(stderr, "DataVector initialized\n");
         }
 
-        virtual void add(Datum<T> value, int timestamp){
-            fprintf(stderr, "add called\n");
+        virtual void add(T value, int timestamp){
+            fprintf(stderr, "add called - %i\n", timestamp);
         }
 };
 
