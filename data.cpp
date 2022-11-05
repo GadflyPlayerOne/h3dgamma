@@ -11,51 +11,69 @@ class DataVector {
 
     private:
         Data<T> *head;
-        void insert(Data<T> *data) {
+        Data<T> *tail;
+        void insert(Data<T> *data)
+        {
 
             fprintf(stderr, "Insert called -- %d\n", (signed int) data->value);
             
-            Data<T> *clone = head;
+            Data<T> *clone = tail;
             Data<T> *prev = NULL;
             
             if (head == NULL)
             {
                 head = data;
+                tail = data;
 #ifdef DEBUG
-            fprintf(stderr, "-- Debug Insert -- \n");
-            fprintf(stderr, "%d\n", (signed int) head->value);
+                fprintf(stderr, "-- Debug Insert -- \n");
+                fprintf(stderr, "%d\n", (signed int)head->value);
 #endif
                 return;
-            } else if(data->value < head->value) {
-                head->prev = data;
-                data->next = head;
-                head = data;
-            } else {
-                while((clone != NULL) && (clone->value <= data->value)) {
+            } 
+            
+            if(!compare(data, clone)) {
+                clone->next = data;
+                data->prev = clone;
+                data->next = NULL;
+                tail = data;
+                fprintf(stderr, "foo\n");
+            }
+            else
+            {
+                while((clone != NULL) && (compare(data, clone))) {
                     prev = clone;
                     clone = clone->next;
                 }
 
-                data->prev = prev;
-                data->next = clone;
+                 data->next = prev;
+                data->prev = clone;
 
                 
                 if(clone != NULL) {
-                    clone->prev = data;
+                    clone->next = data;
                 }
 
                 if(prev != NULL) {
-                    prev->next = data;
+                    prev->prev = data;
                 }
             }
+
 #ifdef DEBUG
-            clone = head;
+            Data<T> *clone2 = head;
             fprintf(stderr, "-- Debug Insert -- \n");
-            while(clone != NULL) {
-                fprintf(stderr, "%d\n", (signed int) clone->value);
-                clone = clone->next;
+            while(clone2 != NULL) {
+                fprintf(stderr, "%d\n", (signed int) clone2->value);
+                clone2 = clone2->next;
             }
-#endif
+#endif   
+        }
+
+        virtual bool compare(Data<T>* a, Data<T>* b) {
+            if ( a->timestamp > b->timestamp) {
+                return false;
+            } else {
+                return true;
+            }
         }
 
     protected:
