@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra -pedantic -std=c++17 -g -fsanitize=address
 LDFLAGS =  -fsanitize=address
 
-SRC = main.cpp
+SRC = main.o data.o
 OBJ = $(SRC:.cc=.o)
 EXEC = main
 
