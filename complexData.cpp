@@ -24,6 +24,9 @@ class ComplexVector {
             Data<T *> *prev = NULL;
 
             int i;
+            for (i = 0; i < m;i++)
+                fprintf(stderr, "%f ", data->value[i]);
+            fprintf(stderr, "\n");
 
             if (head == NULL)
             {
@@ -157,11 +160,14 @@ class ComplexVector {
         void add(T * value, int timestamp) {
             fprintf(stderr, "Complex Add called -- %i\n", timestamp);
 
-            fprintf(stderr, "Complex Data -- %f, %f, %f\n", value[0], value[1], value[2]);
+            int i;
+            fprintf(stderr, "Complex Data -- ");
+            for (i = 0; i < m;i++)
+                fprintf(stderr, "%f ", value[i]);
+            fprintf(stderr, "\n");
             Data<T *> *data = new Data<T *>;
             data->value = (T *)malloc(sizeof(T) * m);
 
-            int i;
             for (i = 0; i < m; i++) {
                 data->value[i] = value[i];
             }

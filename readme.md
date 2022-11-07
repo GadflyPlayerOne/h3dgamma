@@ -11,14 +11,14 @@
 Here is the output from the program.
 
 ```
-as3ics@iMac [23:24:58] [~/Workspace/h3d] [main *]
+as3ics@iMac [23:39:37] [~/Workspace/h3d] [main *]
 -> % make
 g++ -Wall -Werror -Wextra -pedantic -std=c++17 -g -fsanitize=address   -c -o main.o main.cpp
 g++ -Wall -Werror -Wextra -pedantic -std=c++17 -g -fsanitize=address   -c -o data.o data.cpp
 g++ -Wall -Werror -Wextra -pedantic -std=c++17 -g -fsanitize=address   -c -o complexData.o complexData.cpp
 g++ -fsanitize=address -o main main.o data.o complexData.o
 
-as3ics@iMac [23:24:59] [~/Workspace/h3d] [main *]
+as3ics@iMac [23:39:39] [~/Workspace/h3d] [main *]
 -> % ./main
 hello world.
 DataVector initialized
@@ -28,231 +28,240 @@ ComplexVector initialized
 ComplexVector initialized
 
 0 -- Int
-Add called -- 1667795105
-Insert called -- 91
+Add called -- 1667795981
+Insert called -- 23
 -- Debug Insert --
-91
+23
 Delaying for 1325 ms...
 
 1 -- Int
-Add called -- 1667795107
-Insert called -- 32
+Add called -- 1667795982
+Insert called -- 51
 -- Debug Insert --
-91
-32
+23
+51
 Delaying for 1325 ms...
 
 2 -- Int
-Add called -- 1667795108
-Insert called -- 86
+Add called -- 1667795984
+Insert called -- 20
 -- Debug Insert --
-91
-32
-86
+23
+51
+20
 Delaying for 1325 ms...
 
 3 -- Int
-Add called -- 1667795109
-Insert called -- 22
+Add called -- 1667795985
+Insert called -- 36
 -- Debug Insert --
-91
-32
-86
-22
+23
+51
+20
+36
 Delaying for 1325 ms...
 
 4 -- Int
-Add called -- 1667795111
-Insert called -- 20
+Add called -- 1667795986
+Insert called -- 51
 -- Debug Insert --
-91
-32
-86
-22
+23
+51
 20
+36
+51
 Delaying for 1325 ms...
-Get called -- 1667795107
-Get Value -- 32.000000
+Get called -- 1667795983
+Get Value -- 35.500000
 
 5 -- Float
-Add called -- 1667795112
-Insert called -- 145
+Add called -- 1667795988
+Insert called -- 106
 -- Debug Insert --
-145
+106
 Delaying for 1325 ms...
 
 6 -- Float
-Add called -- 1667795113
-Insert called -- 124
+Add called -- 1667795989
+Insert called -- 96
 -- Debug Insert --
-145
-124
+106
+96
 Delaying for 1325 ms...
 
 7 -- Float
-Add called -- 1667795115
-Insert called -- 481
+Add called -- 1667795990
+Insert called -- 74
 -- Debug Insert --
-145
-124
-481
+106
+96
+74
 Delaying for 1325 ms...
 
 8 -- Float
-Add called -- 1667795116
-Insert called -- 104
+Add called -- 1667795992
+Insert called -- 59
 -- Debug Insert --
-145
-124
-481
-104
+106
+96
+74
+59
 Delaying for 1325 ms...
 
 9 -- Float
-Add called -- 1667795117
-Insert called -- 222
+Add called -- 1667795993
+Insert called -- 170
 -- Debug Insert --
-145
-124
-481
-104
-222
+106
+96
+74
+59
+170
 Delaying for 1325 ms...
-Get called -- 1667795114
-Get Value -- 302.909103
+Get called -- 1667795989
+Get Value -- 96.551720
 
 10 -- Int+Timestamp
-Add called -- 32
-Insert called -- 32
+Add called -- 52
+Insert called -- 52
 -- Debug Insert --
-32
+52
 Delaying for 1325 ms...
 
 11 -- Int+Timestamp
-Add called -- 56
-Insert called -- 56
+Add called -- 72
+Insert called -- 72
 -- Debug Insert --
-32
-56
+52
+72
 Delaying for 1325 ms...
 
 12 -- Int+Timestamp
-Add called -- 86
-Insert called -- 86
+Add called -- 61
+Insert called -- 61
 -- Debug Insert --
-32
-56
-86
+52
+61
+72
 Delaying for 1325 ms...
 
 13 -- Int+Timestamp
-Add called -- 85
-Insert called -- 85
+Add called -- 33
+Insert called -- 33
 -- Debug Insert --
-32
-56
-85
-86
+33
+52
+61
+72
 Delaying for 1325 ms...
 
 14 -- Int+Timestamp
-Add called -- 28
-Insert called -- 28
+Add called -- 67
+Insert called -- 67
 -- Debug Insert --
-28
-32
-56
-85
-86
+33
+52
+61
+67
+72
 Delaying for 1325 ms...
 Get called -- 150
 
 15 -- Complex
-Complex Add called -- 1667795125
-Complex Data -- 7.291667, 278.571442, 469.999969
-Insert called -- -- Debug Insert --
-7 278 469
+Complex Add called -- 1667796001
+Complex Data -- 71.739128 18.181818 192.857147
+Insert called -- 71.739128 18.181818 192.857147
+-- Debug Insert --
+71 18 192
 Delaying for 1325 ms...
 
 16 -- Complex
-Complex Add called -- 1667795127
-Complex Data -- 350.000000, 6.250000, 17.543859
-Insert called -- 7 278 469
-350 6 17
+Complex Add called -- 1667796002
+Complex Data -- 494.736877 22.000000 62.162163
+Insert called -- 494.736877 22.000000 62.162163
+71 18 192
+494 22 62
 Delaying for 1325 ms...
 
 17 -- Complex
-Complex Add called -- 1667795128
-Complex Data -- 41.176472, 444.999969, 130.000000
-Insert called -- 7 278 469
-350 6 17
-41 444 130
+Complex Add called -- 1667796004
+Complex Data -- 30.769232 36.956520 108.219185
+Insert called -- 30.769232 36.956520 108.219185
+71 18 192
+494 22 62
+30 36 108
 Delaying for 1325 ms...
 
 18 -- Complex
-Complex Add called -- 1667795129
-Complex Data -- 220.930237, 82.716049, 202.040817
-Insert called -- 7 278 469
-350 6 17
-41 444 130
-220 82 202
+Complex Add called -- 1667796005
+Complex Data -- 3.030303 8.139535 106.153847
+Insert called -- 3.030303 8.139535 106.153847
+71 18 192
+494 22 62
+30 36 108
+3 8 106
 Delaying for 1325 ms...
 
 19 -- Complex
-Complex Add called -- 1667795131
-Complex Data -- 80.769226, 111.111115, 2033.333374
-Insert called -- 7 278 469
-350 6 17
-41 444 130
-220 82 202
-80 111 2033
+Complex Add called -- 1667796006
+Complex Data -- 101.562500 nan 88.888893
+Insert called -- 101.562500 nan 88.888893
+71 18 192
+494 22 62
+30 36 108
+3 8 106
+101 0 88
 Delaying for 1325 ms...
-Complex Get called -- 1667795127
-Complex Get Value -- 350.000000 6.250000 17.543859
+Complex Get called -- 1667796003
+Complex Get Value -- 262.753055 29.478260 85.190674
 
 20 -- Complex * 2
-Complex Add called -- 1667795132
-Complex Data -- 158.333344, 72.727272, 11.392405
-Insert called -- -- Debug Insert --
-158 72 11 161 196 79
+Complex Add called -- 1667796008
+Complex Data -- 61.702126 96.385544 126.315781 77.611938 44.927536 35.714287
+Insert called -- 61.702126 96.385544 126.315781 77.611938 44.927536 35.714287
+-- Debug Insert --
+61 96 126 77 44 35
 Delaying for 1325 ms...
 
 21 -- Complex * 2
-Complex Add called -- 1667795133
-Complex Data -- 2200.000000, 950.000000, 14.285715
-Insert called -- 158 72 11 161 196 79
-2200 950 14 2266 72 257
+Complex Add called -- 1667796009
+Complex Data -- 3.076923 260.000000 5.797101 69.642860 152.941177 95.945946
+Insert called -- 3.076923 260.000000 5.797101 69.642860 152.941177 95.945946
+61 96 126 77 44 35
+3 260 5 69 152 95
 Delaying for 1325 ms...
 
 22 -- Complex * 2
-Complex Add called -- 1667795135
-Complex Data -- 141.025635, 206.521744, 162.295074
-Insert called -- 158 72 11 161 196 79
-2200 950 14 2266 72 257
-141 206 162 49 68 50
+Complex Add called -- 1667796010
+Complex Data -- 117.567566 57.142860 62.500000 18.309858 39.393940 12.195122
+Insert called -- 117.567566 57.142860 62.500000 18.309858 39.393940 12.195122
+61 96 126 77 44 35
+3 260 5 69 152 95
+117 57 62 18 39 12
 Delaying for 1325 ms...
 
 23 -- Complex * 2
-Complex Add called -- 1667795136
-Complex Data -- 163.333328, 53.703701, 104.615387
-Insert called -- 158 72 11 161 196 79
-2200 950 14 2266 72 257
-141 206 162 49 68 50
-163 53 104 435 64 30
+Complex Add called -- 1667796012
+Complex Data -- 331.578949 222.222229 123.529411 27.906979 106.451622 62.650604
+Insert called -- 331.578949 222.222229 123.529411 27.906979 106.451622 62.650604
+61 96 126 77 44 35
+3 260 5 69 152 95
+117 57 62 18 39 12
+331 222 123 27 106 62
 Delaying for 1325 ms...
 
 24 -- Complex * 2
-Complex Add called -- 1667795137
-Complex Data -- 194.736832, 34.246574, 2200.000000
-Insert called -- 158 72 11 161 196 79
-2200 950 14 2266 72 257
-141 206 162 49 68 50
-163 53 104 435 64 30
-194 34 2200 40 3200 207
+Complex Add called -- 1667796013
+Complex Data -- 94.594589 85.333336 65.656570 27.906979 681.818176 60.439564
+Insert called -- 94.594589 85.333336 65.656570 27.906979 681.818176 60.439564
+61 96 126 77 44 35
+3 260 5 69 152 95
+117 57 62 18 39 12
+331 222 123 27 106 62
+94 85 65 27 681 60
 Delaying for 1325 ms...
-Complex Get called -- 1667795134
-Complex Get Value -- 1170.512817 578.260872 88.290395 1158.075520 70.390568 154.172489
+Complex Get called -- 1667796009
+Complex Get Value -- 3.076923 260.000000 5.797101 69.642860 152.941177 95.945946
 
-as3ics@iMac [23:25:39] [~/Workspace/h3d] [main *]
--> %
+as3ics@iMac [23:40:14] [~/Workspace/h3d] [main *]
 ```
