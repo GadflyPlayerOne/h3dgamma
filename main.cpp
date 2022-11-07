@@ -79,7 +79,11 @@ int main() {
         delay(1325);
     }
 
-    vector_complex2.get(time(0) - 5);
+    int timed = time(0) - 5;
+    vector_complex2.get(timed);
+
+    for (i = 0; i < M * 2;i++)
+        vector_complex2.getOne(timed, i);
 
     return 0;
 }

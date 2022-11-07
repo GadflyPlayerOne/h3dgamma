@@ -157,6 +157,45 @@ class ComplexVector {
             return returnValue;
         }
 
+
+        Data<T> getOne(unsigned int timestamp, int offset) {
+            fprintf(stderr, "Complex Get called -- %i\n", timestamp);
+
+            Data<T> returnValue;
+
+            Data<T *> *clone = tail;
+            Data<T *> *prev = NULL;
+
+            if (timestamp > clone->timestamp) {
+                // RETURN NOT FOUND DATA
+                returnValue.timestamp = 0;
+                returnValue.value = 0;
+            }
+            else
+            {
+                while((clone != NULL) && clone->timestamp > timestamp) {
+                    prev = clone;
+                    clone = clone->prev;
+                }
+
+                T y1 = clone != NULL ? clone->value[offset] : 0;
+                T y2 = prev != NULL ? prev->value[offset] : 0;
+
+                unsigned int x1 = clone == NULL ? 0 : clone->timestamp;
+                unsigned int x2 = prev->timestamp;
+
+                // Hard-coded formula for interpolation
+                T y = (T) (double)((double)(((double)y2 - (double)y1) * (((double)timestamp - (double)x1)) / ((double)((double)x2 - (double)x1)))) + (double)y1;
+
+                fprintf(stderr, "Complex Get One Value -- %d\n", (int) y);
+
+                returnValue.value = y;
+                returnValue.timestamp = timestamp;
+            }
+
+            return returnValue;
+        }
+
         void add(T * value, int timestamp) {
             fprintf(stderr, "Complex Add called -- %i\n", timestamp);
 
