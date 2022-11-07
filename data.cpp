@@ -93,12 +93,38 @@ class DataVector {
             this->insert(data);
         }
 
-        virtual Data<T> get(int timestamp) {
+        virtual Data<T> get(unsigned int timestamp) {
             fprintf(stderr, "Get called -- %i\n", timestamp);
 
             Data<T> returnValue;
-            returnValue.timestamp = (int) timestamp;
-            returnValue.value = (T) 1;
+
+            Data<T> *clone = tail;
+            Data<T> *prev = NULL;
+            if (timestamp > clone->timestamp) {
+                // RETURN NOT FOUND DATA
+                returnValue.timestamp = 0;
+                returnValue.value = (T)0;
+            } else {
+                while((clone != NULL) && clone->timestamp > timestamp) {
+                    prev = clone;
+                    clone = clone->prev;
+                }
+
+                T y1 = clone == NULL ? 0 :clone->value;
+                T y2 = prev->value;
+
+                unsigned int x1 = clone == NULL ? 0 : clone->timestamp;
+                unsigned int x2 = prev->timestamp;
+
+                // Hard-coded formula for interpolation
+                double y = (double) ((double)(((double) y2 - (double) y1) * (((double) timestamp - (double) x1)) / ((double) ((double) x2 - (double) x1)))) + (double) y1;
+
+                fprintf(stderr, "Get Value -- %f\n", y);
+
+                returnValue.timestamp = timestamp;
+                returnValue.value = (T) y;
+            }
+            
 
             return returnValue;
         }

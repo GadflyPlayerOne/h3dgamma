@@ -25,21 +25,27 @@ int main() {
     for (i = 0; i < 5; i++) {
         fprintf(stderr, "\n%i -- Int \n", i);
         vector_int.add(RAND_INT, time(0));
-        delay(1000);
+        delay(1325);
     }
+
+    vector_int.get(time(0) - 5);
 
     for (i = 0; i < 5; i++) {
         fprintf(stderr, "\n%i -- Float \n", i + 5);
         vector_float.add(RAND_FLOAT, time(0));
-        delay(1000);
+        delay(1325);
     }
+
+    vector_float.get(time(0) - 5);
 
     for (i = 0; i < 5; i++) {
         unsigned int number = RAND_INT;
         fprintf(stderr, "\n%i -- Int+Timestamp \n", i);
         vector_unsigned_int.add(number, number);
-        delay(1000);
+        delay(1325);
     }
+
+    vector_unsigned_int.get(150);
 
     return 0;
 }
