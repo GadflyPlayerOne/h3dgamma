@@ -4,12 +4,14 @@
 #include <stdio.h>
 #include "data.h"
 
+#define LENGTH(x) (sizeof(x)/sizeof(x[0]))
+
 #define DEBUG
 
 template <class T>
 class DataVector {
 
-    private:
+    protected:
         Data<T> *head;
         Data<T> *tail;
         void insert(Data<T> *data)
@@ -73,18 +75,15 @@ class DataVector {
             }
         }
 
-    protected:
-
     public:
         DataVector() {
             head = NULL;
+            tail = NULL;
             fprintf(stderr, "DataVector initialized\n");
         }
 
-        void add(T value, int timestamp){
+        virtual void add(T value, int timestamp){
             fprintf(stderr, "Add called -- %i\n", timestamp);
-
-            fprintf(stderr, "Data -- %x\n", (unsigned int) value);
             Data<T> *data = new Data<T>;
             data->value = value;
             data->timestamp = timestamp;
@@ -103,7 +102,6 @@ class DataVector {
             if (timestamp > clone->timestamp) {
                 // RETURN NOT FOUND DATA
                 returnValue.timestamp = 0;
-                returnValue.value = (T)0;
             } else {
                 while((clone != NULL) && clone->timestamp > timestamp) {
                     prev = clone;
