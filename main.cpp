@@ -8,7 +8,7 @@
 using namespace std;
 
 #define DEBUG
-#define RAND_INT rand() % 100
+#define RAND_INT ((unsigned int) rand() % 100)
 #define RAND_FLOAT ((float)((((float) (rand() % 100)) / ((float) (rand() % 100))) * 100.0))
 
 int main() {
@@ -17,6 +17,7 @@ int main() {
 
     DataVector<int> vector_int;
     DataVector<float> vector_float;
+    DataVector<unsigned int> vector_unsigned_int;
 
     srand(time(NULL));
 
@@ -30,6 +31,13 @@ int main() {
     for (i = 0; i < 5; i++) {
         fprintf(stderr, "\n%i -- Float \n", i + 5);
         vector_float.add(RAND_FLOAT, time(0));
+        delay(1000);
+    }
+
+    for (i = 0; i < 5; i++) {
+        unsigned int number = RAND_INT;
+        fprintf(stderr, "\n%i -- Int+Timestamp \n", i);
+        vector_unsigned_int.add(number, number);
         delay(1000);
     }
 

@@ -4,7 +4,7 @@
 template <typename T>
 struct Data {
     T value;
-    int timestamp;
+    unsigned int timestamp;
     Data *prev;
     Data *next;
 };

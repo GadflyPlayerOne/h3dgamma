@@ -20,8 +20,7 @@ class DataVector {
             Data<T> *clone = tail;
             Data<T> *prev = NULL;
             
-            if (head == NULL)
-            {
+            if (head == NULL) {
                 head = data;
                 tail = data;
 #ifdef DEBUG
@@ -30,31 +29,29 @@ class DataVector {
 #endif
                 return;
             } 
-            
-            if(!compare(data, clone)) {
+
+            if(!timeCompare(data, clone)) {
                 clone->next = data;
                 data->prev = clone;
                 data->next = NULL;
                 tail = data;
-                fprintf(stderr, "foo\n");
-            }
-            else
-            {
-                while((clone != NULL) && (compare(data, clone))) {
+            } else {
+                while ((clone != NULL) && (timeCompare(data, clone))) {
                     prev = clone;
-                    clone = clone->next;
+                    clone = clone->prev;
                 }
 
-                 data->next = prev;
-                data->prev = clone;
-
-                
-                if(clone != NULL) {
-                    clone->next = data;
-                }
-
-                if(prev != NULL) {
+                if (clone == NULL) {
                     prev->prev = data;
+                    data->next = prev;
+                    head = data;
+                } else {
+                    clone->next = data;
+                    data->prev = clone;
+                    data->next = prev;
+                    if (prev != NULL) {
+                        prev->prev = data;
+                    }
                 }
             }
 
@@ -68,11 +65,11 @@ class DataVector {
 #endif   
         }
 
-        virtual bool compare(Data<T>* a, Data<T>* b) {
-            if ( a->timestamp > b->timestamp) {
-                return false;
-            } else {
+        bool timeCompare(Data<T>* data, Data<T>* clone) {
+            if ( data->timestamp < clone->timestamp) {
                 return true;
+            } else {
+                return false;
             }
         }
 
@@ -94,6 +91,16 @@ class DataVector {
             data->next = data->prev = NULL;
 
             this->insert(data);
+        }
+
+        virtual Data<T> get(int timestamp) {
+            fprintf(stderr, "Get called -- %i\n", timestamp);
+
+            Data<T> returnValue;
+            returnValue.timestamp = (int) timestamp;
+            returnValue.value = (T) 1;
+
+            return returnValue;
         }
 };
 
