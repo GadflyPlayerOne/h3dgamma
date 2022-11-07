@@ -12,7 +12,7 @@ I decided to approach this problem based on the requirements with a double linke
 
 The reason I chose I double linked list is because based on the requirements it appeared most of the data would be added at, or near, the end of the list, but the list would be read from the front. Because it was mentioned that the data would be iterated over it also led me to the linked list solution.
 
-While it was straight forward created the base class for basic datatypes, when I went to add in the functionality for complex data types i.e. arrays of multiple values, it was realized that I would have to create another class for that. Most of the logic was copy and pasted, but I added in an `m` value that is for length of the array of a datatype. This solution allows for arrays of multiple sized arrays of a single datatype to be managed and interpolated.
+While it was more straight forward to create the base class for basic datatypes, when I went to add in the functionality for complex data types i.e. arrays of multiple values, it was realized that I would have to create another class for that due to the strong type-casting of c++. Most of the logic was copy and pasted, but I added in an `m` value that is for length of the array of a datatype. This solution allows for arrays of multiple sized arrays of a single datatype to be managed and interpolated.
 
 Additionally a function was added in to interpolate of only 1 index of an array of values in the linked list.
 
